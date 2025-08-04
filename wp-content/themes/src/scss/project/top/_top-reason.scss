@@ -1,0 +1,201 @@
+@charset "utf-8";
+@use '../../foundation' as *;
+
+/* -------------------------------------------*/
+
+.p-top-reason {
+  padding-block: 13rem 6rem;
+  background-color: $c-orange2;
+  @include mq(md, max) {
+    padding-block: 10.5rem 5rem;
+  }
+
+  &__lead {
+    width: fit-content;
+    margin-inline: auto;
+    font-weight: 700;
+    font-size: 3.6rem;
+    letter-spacing: 0.05em;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    @include mq(md, max) {
+      font-size: 2.4rem;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: absolute;
+      z-index: -1;
+    }
+
+    &::before {
+      width: 21rem;
+      aspect-ratio: 210/180;
+      background-image: url(../images/top/reason-lead01.svg);
+      top: -5.9rem;
+      left: -13rem;
+      @include mq(md, max) {
+        width: 13.3rem;
+        top: -4.3rem;
+        left: -1.7rem;
+      }
+    }
+
+    &::after {
+      width: 12rem;
+      aspect-ratio: 1/1;
+      background-image: url(../images/top/reason-lead02.svg);
+      top: -0.8rem;
+      right: -8rem;
+      @include mq(md, max) {
+        width: 8rem;
+        top: -2.3rem;
+        right: -1.7rem;
+      }
+    }
+
+    .dot {
+      color: $c-orange;
+      background-position: top left 0px;
+      background-repeat: repeat-x;
+      background-size: 1em .2em;
+      background-image: radial-gradient(.1em .1em at center center,$c-orange,$c-orange 100%,transparent,transparent);
+      padding-top: .2em;
+      @include mq(md, max) {
+        background-size: 1em calc((5 / 2.4) * 0.1em);
+        background-image: radial-gradient(calc(((5 / 2.4) * 0.1em) / 2) calc(((5 / 2.4) * 0.1em) / 2) at center center,$c-orange,$c-orange 100%,transparent,transparent);
+        padding-top: calc((5 / 2.4) * 0.1em);
+      }
+    }
+
+    & + * {
+      margin-top: 2rem;
+      @include mq(md, max) {
+        margin-top: 1.4rem;
+      }
+    }
+  }
+
+  .c-primary-title {
+    & + * {
+      margin-top: 5.6rem;
+      @include mq(md, max) {
+        margin-top: 3rem;
+      }
+    }
+  }
+
+  &__body {
+    gap: 60px 44px;
+    @include mq(lg, max) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    @include mq(md, max) {
+      gap: 30px;
+    }
+  }
+
+  &__item {
+    padding-left: 5rem;
+    position: relative;
+    counter-increment: reason;
+    @include mq(md, max) {
+      padding-left: 1rem;
+    }
+
+    &-inner {
+      height: 100%;
+      border-radius: 1.6rem;
+      background-color: $c-white;
+      padding-block: 1.6rem 2.4rem;
+      padding-inline: 2.4rem;
+      box-shadow: 0px 0.3rem 3rem rgba(0, 0, 0, 0.05);
+      @include mq(md, max) {
+        padding-bottom: 2rem;
+        padding-inline: 1.6rem;
+      }
+
+    }
+
+    &-title {
+      padding-left: 4.2rem;
+      min-height: 6rem;
+      font-weight: 700;
+      font-size: 2rem;
+      letter-spacing: 0.05em;
+      color: $c-orange;
+      position: relative;
+      @include mq(md, max) {
+        min-height: auto;
+        font-size: 1.8rem;
+      }
+      &::before {
+        content: "reason " counter(reason, decimal-leading-zero);
+        font-family: $nunito;
+        font-weight: 700;
+        font-size: 1.4rem;
+        letter-spacing: 0.05em;
+        line-height: calc(19/14);
+        color: $c-green;
+        text-transform: uppercase;
+        position: absolute;
+        top: -0.6rem;
+        left: 4.2rem;
+        transform: translateY(-100%);
+        @include mq(md, max) {
+          font-size: 1.2rem;
+          line-height: calc(16/12);
+        }
+      }
+
+      span {
+        span {
+          display: inline-block;
+        }
+      }
+
+      & + * {
+        margin-top: 1.6rem;
+        @include mq(md, max) {
+          margin-top: 0.7rem;
+        }
+      }
+
+    }
+
+    &-icon {
+      width: 10rem;
+      position: absolute;
+      top: -1.6rem;
+      left: 0;
+      @include mq(md, max) {
+        width: 6rem;
+        top: -1rem;
+      }
+    }
+  }
+
+  &__text {
+    font-size: 1.6rem;
+
+    &.--bold {
+      font-weight: 600;
+    }
+
+    .underline {
+      font-weight: 600;
+      background: linear-gradient(to top, $c-yellow 0%, $c-yellow 0.8rem, transparent 0.8rem, transparent 100%);
+    }
+
+    & + .p-top-reason__text {
+      margin-top: 0.8rem;
+    }
+  }
+
+}

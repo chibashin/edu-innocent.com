@@ -1,0 +1,58 @@
+@charset "utf-8";
+@use '../foundation' as *;
+
+/* -------------------------------------------*/
+.c-primary-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+
+  &__small {
+    gap: 0.4rem;
+    @include mq(md, max) {
+      gap: 0;
+    }
+    .c-primary-title__jp {
+      font-size: 2rem;
+      @include mq(md, max) {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+
+  &__jp,
+  &__en {
+    color: $c-orange;
+    text-align: center;
+  }
+
+  &__jp {
+    font-weight: 700;
+    font-size: 3.6rem;
+    letter-spacing: 0.05em;
+    @include mq(md, max) {
+      font-size: 2.4rem;
+    }
+  }
+
+  &__en {
+    font-family: $playwrite;
+    font-size: 2rem;
+    line-height: calc(38/20);
+    @include mq(md, max) {
+      font-size: 1.8rem;
+      line-height: calc(34/18);
+    }
+
+    &--large {
+      font-size: 3.6rem;
+      line-height: calc(69/36);
+    }
+  }
+
+  & + * {
+    margin-top: 2.4rem;
+  }
+}

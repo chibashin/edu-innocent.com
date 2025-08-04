@@ -1,0 +1,116 @@
+@charset "utf-8";
+@use '../../foundation' as *;
+
+/* -------------------------------------------*/
+
+.p-top-record {
+  padding-block: 6rem 10rem;
+  @include mq(md, max) {
+    padding-top: 4rem;
+  }
+
+  & .u-con--md {
+    position: relative;
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      aspect-ratio: 1/1;
+      position: absolute;
+      z-index: -1;
+    }
+    &::before {
+      width: 17.3rem;
+      background: url(../images/top/class-treat02.svg) 50% / contain no-repeat;
+      top: -5rem;
+      left: 2.4rem;
+      @include mq(md, max) {
+        width: 13.8rem;
+        top: -6.6rem;
+        left: -1.1rem;
+      }
+    }
+    &::after {
+      width: 25.7rem;
+      background: url(../images/top/class-treat01.svg) 50% / contain no-repeat;
+      bottom: -13.7rem;
+      right: -8.3rem;
+      @include mq(md, max) {
+        width: 13.8rem;
+        background-image: url(../images/top/class-treat01_sp.png);
+        bottom: -2rem;
+        right: -0.9rem;
+        transform: translateY(100%);
+      }
+    }
+  }
+
+  &__list {
+    &.l-grid--col4 {
+      max-width: 91.2rem;
+      margin-inline: auto;
+      gap: 2.4rem;
+      @include mq(tb, max) {
+        max-width: 45rem;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include mq(md, max) {
+        max-width: 33.6rem;
+        gap: 1.6rem;
+      }
+    }
+
+    &-item {
+      aspect-ratio: 1/1;
+      background-color: $c-white;
+      border-radius: 50%;
+      border: 1px solid #fff;
+      filter: drop-shadow(0px 0.3rem 3rem rgba(0, 0, 0, 0.05));
+      color: $c-orange;
+      text-align: center;
+      padding-top: 3rem;
+      @include mq(md, max) {
+        padding-top: 2.4rem;
+      }
+    }
+
+    &-text {
+      font-weight: 500;
+      font-size: 2rem;
+      min-height: 6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      @include mq(md, max) {
+        font-size: 1.6rem;
+        min-height: 4.8rem;
+      }
+    }
+
+    &-num {
+      font-size: 2.4rem;
+      font-weight: 500;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 0.8rem;
+      @include mq(md, max) {
+        font-size: 1.6rem;
+        gap: 0.2rem;
+      }
+      .number {
+        display: inline-block;
+        font-size: 7.2rem;
+        font-family: $rampart;
+        letter-spacing: -0.05em;
+        line-height: calc(80/72);
+        @include mq(md, max) {
+          font-size: 5.6rem;
+          line-height: calc(60/56);
+        }
+      }
+    }
+  }
+
+}

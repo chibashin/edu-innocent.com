@@ -1,0 +1,161 @@
+@charset "utf-8";
+@use '../foundation' as *;
+
+/* -------------------------------------------*/
+.l-footer {
+  background-color: $c-orange2;
+  border-radius: 12rem 12rem 0 0;
+  padding-block: 8rem 1rem;
+  @include mq(lg, max) {
+    padding-bottom: 8.4rem;
+  }
+  @include mq(md, max) {
+    border-radius: 6rem 6rem 0 0;
+    padding-block: 4rem 6.8rem;
+  }
+  &__body {
+    width: 90%;
+    max-width: 120rem;
+    margin-inline: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    @include mq(lg, max) {
+      flex-direction: column;
+      align-items: center;
+      gap: 6rem;
+    }
+
+    & + * {
+      margin-top: 4rem;
+      @include mq(lg, max) {
+        margin-top: 5.5rem;
+      }
+    }
+  }
+
+  &__logo {
+    display: block;
+    max-width: 29.6rem;
+    @media (hover: hover) and (pointer: fine) {
+      @include transition(
+        $property: (
+          opacity
+        )
+      );
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    & + * {
+      margin-top: 2.4rem;
+    }
+  }
+
+  &__address {
+    @include mq(lg, max) {
+      text-align: center;
+    }
+    &-tel {
+      font-size: 3.3rem;
+      font-weight: 700;
+      font-family: $nunito;
+      line-height: calc(45/33);
+      @include mq(md, max) {
+        font-size: 2.4rem;
+      }
+      & + .l-footer__address-content {
+        margin-top: 0;
+        @include mq(md, max) {
+          font-size: 1.2rem;
+          line-height: calc(18/12);
+        }
+      }
+    }
+    &-content {
+      font-size: 1.4rem;
+      line-height: calc(20/14);
+
+      & + .l-footer__address-content {
+        margin-top: 1.6rem;
+        @include mq(md, max) {
+          margin-top: 1.5rem;
+        }
+      }
+    }
+  }
+
+  &__content {
+    flex: 1;
+    max-width: 62.6rem;
+    @include mq(lg, max) {
+      width: 100%;
+    }
+  }
+
+  &__btns.l-grid {
+    gap: 1.6rem 2.6rem;
+    @include mq(md, max) {
+      width: 24rem;
+      margin-inline: auto;
+    }
+
+    .c-btn {
+      font-size: 2rem;
+      padding-block: 1.7rem;
+      @include mq(md, max) {
+        font-size: 1.6rem;
+        padding-block: 1.4rem;
+      }
+      &::after {
+        right: 2.2rem;
+        @include mq(md, max) {
+          right: 1.6rem;
+        }
+      }
+    }
+    & + * {
+      margin-top: 5.5rem;
+    }
+  }
+
+  &__nav {
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 2rem;
+      @include mq(lg, max) {
+        justify-content: center;
+      }
+      @include mq(md, max) {
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+    }
+
+    &-link {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: calc(20/14);
+      padding: 0.5rem;
+      @media (hover: hover) and (pointer: fine) {
+        @include transition(
+          $property: (
+            opacity,
+          )
+        );
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  &__copy {
+    font-size: 1.4rem;
+    line-height: calc(20/14);
+    text-align: center;
+  }
+}

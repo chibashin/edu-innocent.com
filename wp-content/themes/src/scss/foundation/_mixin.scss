@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+/* -------------------------------------------*/
+// MediaQuery
+$mq-breakpoints: ('xs': 361px,
+	'sm': 480px,
+	'md': 767px,
+	'tb': 992px,
+	'lg': 1024px,
+	'header': 1280px,
+	'xl': 1440px,
+	'xxl': 1780px,
+) !default;
+
+@mixin mq($breakpoint: md, $rule: min) {
+	$breakpoint: map-get($mq-breakpoints, $breakpoint);
+
+	@if $rule==max {
+		@media screen and (max-width: $breakpoint) {
+			@content;
+		}
+	}
+
+	@else {
+		@media not all and (max-width: $breakpoint) {
+			@content;
+		}
+	}
+}
+
+@mixin transition($second:0.3s, $property:color) {
+	transition: $second;
+	transition-property: $property;
+}
+
+// Prefix
+@mixin prefix($property, $value) {
+
+	@each $prefix in -webkit-,
+	-moz-,
+	'' {
+		#{$prefix}#{$property}: $value;
+	}
+}
+
+
+@mixin grow {
+	flex-grow: 1;
+}
+
+@mixin windowfull($property: top, $height: 100%) {
+	content: "";
+	position: absolute;
+	#{$property}: 0;
+	left: 0;
+	display: block;
+	width: 100vw;
+	height: $height;
+	margin: 0 calc(50% - 50vw);
+	z-index: -1;
+}

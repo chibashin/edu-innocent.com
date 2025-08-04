@@ -1,0 +1,78 @@
+@charset "utf-8";
+@use '../foundation' as *;
+
+/* -------------------------------------------*/
+.c-btn {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+  border: 0.2rem solid;
+  border-radius: 10rem;
+  padding-block: 1.4rem;
+  position: relative;
+  @media (hover: hover) and (pointer: fine) {
+    @include transition(
+      $property: (
+        background-color,
+        color,
+      )
+    );
+    &::after {
+      @include transition(
+        $property: (
+          background-color,
+        )
+      );
+    }
+  }
+
+
+  &::after {
+    content: "";
+    display: block;
+    width: 1.8rem;
+    aspect-ratio: 1/1;
+    mask: url(../images/icon/icon_chevron-right.svg) 50% / contain no-repeat;
+    position: absolute;
+    top: 50%;
+    right: 1.6rem;
+    transform: translateY(-50%);
+  }
+
+  &--green {
+    color: $c-white;
+    border-color: $c-green;
+    background-color: $c-green;
+    &::after {
+      background-color: $c-white;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: $c-green;
+        background-color: $c-white;
+        &::after {
+          background-color: $c-green;
+        }
+      }
+    }
+  }
+
+  &--orange {
+    color: $c-orange;
+    border-color: $c-orange;
+    background-color: $c-white;
+    &::after {
+      background-color: $c-orange;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: $c-white;
+        background-color: $c-orange;
+        &::after {
+          background-color: $c-white;
+        }
+      }
+    }
+  }
+}

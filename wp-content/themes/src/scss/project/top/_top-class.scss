@@ -1,0 +1,318 @@
+@charset "utf-8";
+@use '../../foundation' as *;
+
+/* -------------------------------------------*/
+
+.p-top-class {
+  padding-block: 10rem;
+  @include mq(md, max) {
+    padding-block: 7.6rem 8rem;
+  }
+
+  & .u-con--md {
+    position: relative;
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      aspect-ratio: 1/1;
+      position: absolute;
+    }
+    &::before {
+      width: 25.7rem;
+      background: url(../images/top/class-treat01.svg) 50% / contain no-repeat;
+      top: -8.4rem;
+      left: -17.5rem;
+      @include mq(md, max) {
+        width: 10.8rem;
+        background-image: url(../images/top/class-treat01_sp.png);
+        top: -7.2rem;
+        left: -1.5rem;
+      }
+    }
+    &::after {
+      width: 17.3rem;
+      background: url(../images/top/class-treat02.svg) 50% / contain no-repeat;
+      top: 10%;
+      right: -14rem;
+      @include mq(md, max) {
+        display: none;
+      }
+    }
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 1.6rem;
+    letter-spacing: 0.05em;
+    line-height: calc(27/16);
+    @include mq(md, max) {
+      letter-spacing: 0;
+    }
+    &-center {
+      text-align: center;
+      @include mq(md, max) {
+        text-align: left;
+      }
+    }
+
+    & + * {
+      margin-top: 6rem;
+      @include mq(md, max) {
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  &__map {
+    max-width: 64rem;
+    margin-inline: auto;
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 1.6rem;
+    overflow: hidden;
+    position: relative;
+    background-color: $c-gray;
+    @include mq(md, max) {
+      aspect-ratio: auto;
+      height: 47.5rem;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 17.3rem;
+      aspect-ratio: 1/1;
+      background: url(../images/top/class-treat03.svg) 50% / contain no-repeat;
+      position: absolute;
+      left: -13.3rem;
+      bottom: -8.7rem;
+      @include mq(md, max) {
+        width: 16.8rem;
+        bottom: -9rem;
+        left: auto;
+        right: -1.9rem;
+      }
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+
+    & + * {
+      margin-top: 7rem;
+      @include mq(md, max) {
+        margin-top: 4rem;
+      }
+    }
+  }
+
+
+  &__list {
+    gap: 40px 44px;
+    position: relative;
+    z-index: 1;
+    @include mq(md, max) {
+      gap: 2rem;
+    }
+    // @include mq(md, max) {
+    //   grid-template-columns: repeat(1, 1fr);
+    // }
+
+    & + * {
+      margin-top: 8rem;
+      @include mq(md, max) {
+        margin-top: 5.4rem;
+      }
+    }
+  }
+
+  &__card {
+    background-color: $c-orange2;
+    border-radius: 1.6rem;
+    box-shadow: 0px 0.3rem 3rem rgba(0, 0, 0, 0.05);
+    padding: 2rem 2rem 2.4rem;
+    @include mq(md, max) {
+      padding: 1.6rem;
+    }
+
+    &-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      @include mq(md, max) {
+        align-items: center;
+      }
+    }
+
+    &-box {
+      flex: 1;
+    }
+
+    &-name {
+      font-weight: 500;
+      font-size: 2rem;
+      letter-spacing: 0.05em;
+      line-height: calc(29/20);
+      color: $c-orange;
+      @include mq(md, max) {
+        font-size: 1.8rem;
+        line-height: calc(27/18);
+      }
+
+      & + * {
+        margin-top: 0.8rem;
+        @include mq(md, max) {
+          margin-top: 0;
+        }
+      }
+    }
+
+    &-info {
+      &-item {
+        display: flex;
+        align-items: flex-start;
+
+        &.--tel {
+          .p-top-class__card-icon {
+            width: 1.2rem;
+            margin-top: 0.8rem;
+            margin-right: 0.4rem;
+          }
+          .p-top-class__card-text:not(.--small) {
+            @include mq(md, max) {
+              font-size: 1.6rem;
+              line-height: calc(24/16);
+            }
+          }
+        }
+
+        &.--address {
+          .p-top-class__card-icon {
+            width: 1.4rem;
+            margin-top: 0.6rem;
+            margin-right: 0.2rem;
+          }
+        }
+
+        & + .p-top-class__card-info-item {
+          margin-top: 0.7rem;
+          @include mq(md, max) {
+            margin-top: 0.4rem;
+          }
+        }
+      }
+    }
+
+    &-icon {
+      img {
+        display: block;
+      }
+    }
+
+    &-content {
+      flex: 1;
+    }
+
+    &-text {
+      font-size: 1.6rem;
+      font-weight: 500;
+      @include mq(md, max) {
+        font-size: 1.4rem;
+        line-height: calc(20/14);
+      }
+
+      &.--small {
+        font-size: 1.2rem;
+        font-weight: 400;
+        margin-top: 0.2rem;
+        @include mq(md, max) {
+          font-size: 1rem;
+          margin-top: 0;
+        }
+      }
+
+      span {
+        display: inline-block;
+      }
+    }
+
+    &-image {
+      width: calc((160 / 478) * 100%);
+      border-radius: 0.8rem;
+      overflow: hidden;
+      @include mq(md, max) {
+        width: calc((100 / 305.5) * 100%);
+      }
+    }
+  }
+
+  &__banner {
+    max-width: 48rem;
+    margin-inline: auto;
+
+    &-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
+      border-radius: 1.6rem;
+      background: #f3fbfb;
+      border: 0.3rem solid #2b7aab;
+      padding-block: 1.6rem;
+      @media (hover: hover) and (pointer: fine) {
+        @include transition(
+          $property: (
+            background-color,
+          )
+        );
+        &:hover {
+          background-color: rgb(243 251 251 / 0.7);
+        }
+      }
+    }
+
+    &-image {
+      width: calc((278 / 474) * 100%);
+      margin-inline: auto;
+      display: block;
+      @include mq(md, max) {
+        width: calc((220 / 331.5) * 100%);
+      }
+    }
+
+    &-text {
+      display: inline-block;
+      margin-inline: auto;
+      font-weight: 500;
+      font-size: 1.6rem;
+      letter-spacing: 0;
+      text-align: center;
+      color: #2b7aab;
+      position: relative;
+      @include mq(md, max) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.85rem;
+      }
+      &::after {
+        content: "";
+        display: block;
+        width: 1.6rem;
+        aspect-ratio: 1/1;
+        mask: url(../images/icon/icon_chevron-right.svg) 50% / contain no-repeat;
+        background-color: #2b7aab;
+        position: absolute;
+        top: 50%;
+        right: -0.8rem;
+        transform: translate(100%,-50%);
+        @include mq(md, max) {
+          position: static;
+          transform: none;
+        }
+      }
+    }
+  }
+}

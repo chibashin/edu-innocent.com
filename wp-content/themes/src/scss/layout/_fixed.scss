@@ -1,0 +1,132 @@
+@charset "utf-8";
+@use '../foundation' as *;
+
+/* -------------------------------------------*/
+
+.l-fixed {
+  &__wrap {
+    display: flex;
+    gap: 0.8rem;
+    @include mq(lg, max) {
+      width: 100%;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      gap: 0;
+    }
+  }
+  &__btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom-left-radius: 1.6rem;
+    border-bottom-right-radius: 1.6rem;
+    overflow: hidden;
+    color: $c-white;
+    padding-inline: 1.9rem;
+    position: relative;
+    z-index: 1;
+    @include mq(lg, max) {
+      width: 50%;
+      border-radius: 1.6rem 1.6rem 0 0;
+    }
+    @include mq(md, max) {
+      padding-inline: 0;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      &::after {
+        @include transition(
+          $property: (
+            opacity,
+          )
+        );
+      }
+      &:hover {
+        &::after {
+          opacity: 0.7;
+        }
+      }
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+    &-tel {
+      padding-block: 0.7rem 1.3rem;
+      @include mq(md, max) {
+        padding-block: 1.1rem 0.8rem;
+      }
+      &::after {
+        background: linear-gradient(to right,#ffae53 0%, #ed751d 100%);
+      }
+
+      .num {
+        font-size: 3.2rem;
+        font-weight: 700;
+        font-family: $nunito;
+        line-height: calc(43/32);
+        @include mq(md, max) {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.1rem;
+          font-size: 2rem;
+          line-height: calc(27/20);
+        }
+        &::before {
+          @include mq(md, max) {
+            content: "";
+            display: block;
+            width: 1.4rem;
+            aspect-ratio: 1/1;
+            mask: url(../images/icon/icon_phone.svg) 50% / contain no-repeat;
+            background-color: $c-white;
+            margin-top: 0.7rem;
+          }
+        }
+      }
+
+      .text {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-top: -0.7rem;
+        @include mq(md, max) {
+          font-size: 1rem;
+          margin-top: -0.3rem;
+        }
+      }
+    }
+    &-cta {
+      min-width: 18.4rem;
+      padding-block: 0.8rem 1rem;
+      @include mq(md, max) {
+        padding-block: 0.8rem 0.9rem;
+      }
+      &::after {
+      background-image: linear-gradient(to right,#4dad4c 0%, #319a33 100%);
+      }
+
+      .text01 {
+        font-size: 2.4rem;
+        font-weight: 700;
+        @include mq(md, max) {
+          font-size: 2rem;
+        }
+      }
+      .text02 {
+        font-size: 1.6rem;
+        font-weight: 500;
+        margin-top: -0.4rem;
+        @include mq(md, max) {
+          font-size: 1rem;
+          margin-top: -0.3rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,229 @@
+@charset "utf-8";
+@use '../../foundation' as *;
+
+/* -------------------------------------------*/
+
+.p-top-banner {
+
+  .u-con--md {
+    position: relative;
+    z-index: 1;
+    &::after {
+      content: "";
+      display: block;
+      aspect-ratio: 1/1;
+      width: calc((173 / 1080) * 100%);
+      background: url(../images/top/class-treat02.svg) 50% / contain no-repeat;
+      position: absolute;
+      left: calc((-173 / 1080) * 100%);
+      bottom: 0.9rem;
+      z-index: -1;
+      @include mq(lg, max) {
+        left: -2rem;
+      }
+      @include mq(md, max) {
+        width: 13.8rem;
+        left: -1.7rem;
+        bottom: -11rem;
+      }
+    }
+  }
+
+  &__item {
+    max-width: 60rem;
+    margin-inline: auto;
+    @include mq(md, max) {
+      max-width: 46rem;
+    }
+
+    & + .p-top-banner__item {
+      margin-top: 3.6rem;
+      @include mq(md, max) {
+        margin-top: 2.4rem;
+      }
+    }
+  }
+
+  &__blog {
+    border-radius: 1.6rem;
+    background: linear-gradient(to right,#ffae53 0%, #ed751d 100%);
+    padding-block: 3.6rem 3.2rem;
+    position: relative;
+    @include mq(md, max) {
+      padding-block: 2.4rem 2.2rem;
+    }
+    &::before {
+      content: "";
+      display: block;
+      width: 13.9rem;
+      aspect-ratio: 139/135;
+      background: url(../images/top/banner-blog-treat.png) 50% / contain no-repeat;
+      position: absolute;
+      top: -5.28rem;
+      left: -4rem;
+      @include mq(md, max) {
+        width: 8rem;
+        top: -6rem;
+        left: 0;
+      }
+    }
+
+    &-img {
+      width: 24.4rem;
+      margin-inline: auto;
+      @include mq(md, max) {
+        width: 16rem;
+      }
+
+      & + * {
+        margin-top: 1.6rem;
+        @include mq(md, max) {
+          margin-top: 0.7rem;
+        }
+      }
+    }
+
+    &-link {
+      display: block;
+      max-width: 40rem;
+      margin-inline: auto;
+      font-size: 2rem;
+      font-weight: 500;
+      color: $c-white;
+      text-align: center;
+      padding-block: 2.4rem;
+      border: 0.2rem solid $c-white;
+      border-radius: 10rem;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      @include mq(md, max) {
+        max-width: 30.8rem;
+        font-size: 1.6rem;
+        padding-block: 1.6rem;
+      }
+      @media (hover: hover) and (pointer: fine) {
+        &::before {
+          @include transition(
+            $property: (
+              opacity,
+            )
+          );
+        }
+        &:hover {
+          &::before {
+            opacity: 0.6;
+          }
+        }
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        background-image: linear-gradient(to right,#ffae53 0%, #ed751d 100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 1.8rem;
+        aspect-ratio: 1/1;
+        mask: url(../images/icon/icon_chevron-right.svg) 50% / contain no-repeat;
+        background-color: $c-white;
+        position: absolute;
+        top: 50%;
+        right: 1.6rem;
+        transform: translateY(-50%);
+        @include mq(md, max) {
+          right: 1.2rem;
+        }
+      }
+    }
+  }
+
+  &__summer {
+
+    &-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      border-radius: 1.6rem;
+      background-color: rgb(255 251 241 / 1);
+      border: 0.3rem solid $c-orange;
+      padding-block: 1.6rem;
+      position: relative;
+      @media (hover: hover) and (pointer: fine) {
+        @include transition(
+          $property: (
+            background-color,
+          )
+        );
+        &:hover {
+          background-color: rgb(255 251 241 / 0.7);
+        }
+      }
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: 500;
+      font-size: 1.6rem;
+      @include mq(md, max) {
+        gap: 0.6rem;
+      }
+
+      .underline {
+        font-weight: 700;
+        font-size: 2.4rem;
+        background: linear-gradient(to top, transparent 0%, transparent 0.3rem, $c-yellow 0.3rem, $c-yellow 1.3rem, transparent 1.3rem, transparent 100%);
+        @include mq(md, max) {
+          font-size: 2rem;
+          background: linear-gradient(to top, $c-yellow 0%, $c-yellow 0.8rem, transparent 0.8rem, transparent 100%);
+        }
+      }
+    }
+
+    &-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      font-weight: 500;
+      font-size: 1.6rem;
+      letter-spacing: 0;
+      text-align: center;
+      color: $c-orange;
+      @include mq(md, max) {
+      }
+      &::after {
+        content: "";
+        display: block;
+        width: 1.6rem;
+        aspect-ratio: 1/1;
+        mask: url(../images/icon/icon_chevron-right.svg) 50% / contain no-repeat;
+        background-color: $c-orange;
+      }
+    }
+
+    &-img {
+      width: 8.2rem;
+      position: absolute;
+      top: 2.7rem;
+      left: 6.3rem;
+      @include mq(md, max) {
+        width: 6.4rem;
+        position: static;
+        margin-top: 0.6rem;
+      }
+    }
+  }
+}

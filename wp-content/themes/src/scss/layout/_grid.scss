@@ -1,0 +1,36 @@
+@charset "utf-8";
+@use '../foundation' as *;
+
+/* -------------------------------------------*/
+.l-grid {
+  display: grid;
+  flex-wrap: wrap;
+  gap: 4rem 6rem;
+}
+
+// col2
+.l-grid--col2 {
+  grid-template-columns: repeat(2, 1fr);
+  @include mq(md, max) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
+
+// col3
+.l-grid--col3 {
+  grid-template-columns: repeat(3, 1fr);
+  @include mq(md, max) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
+// col4
+.l-grid--col4 {
+  grid-template-columns: repeat(4, 1fr);
+  @include mq(md, max) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

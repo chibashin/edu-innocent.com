@@ -1,0 +1,105 @@
+@charset "utf-8";
+@use "../foundation"as *;
+
+/* -------------------------------------------*/
+.u-db {
+	display: block;
+}
+
+.u-dn {
+	display: none;
+}
+
+.u-pc {
+	@include mq(lg, max) {
+		display: none;
+	}
+}
+
+.u-st {
+	@include mq(lg) {
+		display: none !important;
+	}
+}
+
+.u-pt {
+	@include mq(md) {
+		display: none !important;
+	}
+}
+
+.u-sp {
+	@include mq(md, max) {
+		display: none !important;
+	}
+}
+
+.u-mask--c-black {
+	filter: brightness(0);
+}
+
+.u-mask--c-white {
+	filter: brightness(0) invert(1);
+}
+
+
+.u-con--md {
+  width: 80%;
+	max-width: 108rem;
+	margin-inline: auto;
+	@include mq(lg, max) {
+    width: 90%;
+  }
+	@include mq(md, max) {
+    max-width: 60rem;
+  }
+}
+
+.u-con--lg {
+  width: calc((1296 / 1440) * 100%);
+	max-width: 129.6rem;
+	margin-inline: auto;
+	@include mq(md, max) {
+    max-width: 60rem;
+  }
+}
+
+.u-c-white {
+	color: $c-white;
+}
+
+.u-c--b-white {
+	color: $c-white;
+}
+
+.u-z-1 {
+	z-index: -1;
+}
+
+.u-z1 {
+	z-index: 1;
+}
+
+.u-z2 {
+	z-index: 2;
+}
+
+.u-z3 {
+	z-index: 3;
+}
+
+.u-z10 {
+	z-index: 10;
+}
+
+.u-z50 {
+	z-index: 50;
+}
+
+.u-z100 {
+	z-index: 100;
+}
+
+.u-z999 {
+	z-index: 999;
+}

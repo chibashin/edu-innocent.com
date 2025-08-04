@@ -1,0 +1,45 @@
+@charset "utf-8";
+@use '../../foundation' as *;
+
+/* -------------------------------------------*/
+
+.p-top-instagram {
+  padding-block: 6rem 10rem;
+  background-color: $c-orange2;
+  @include mq(md, max) {
+    padding-block: 5rem 8rem;
+  }
+
+  .c-primary-title__en {
+    @include mq(md, max) {
+      font-size: 3.6rem;
+    }
+    & + * {
+      margin-top: 4rem;
+    }
+  }
+
+  &__body {
+    max-width: 121.4rem;
+    margin-inline: auto;
+
+    #sb_instagram {
+      padding-bottom: 0 !important;
+    }
+
+    #sbi_images {
+      padding-block: 0 !important;
+    }
+
+    & + * {
+      margin-top: 4rem;
+    }
+  }
+
+  &__btn {
+    .c-btn {
+      max-width: 30rem;
+      margin-inline: auto;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@charset "utf-8";
+@use '../../foundation' as *;
+
+/* -------------------------------------------*/
+
+.p-top-image {
+  padding-top: 8rem;
+  background: linear-gradient(to bottom, transparent 0%, transparent 22.1rem, $c-orange2 22.1rem, $c-orange2 100%);
+  @include mq(lg, max) {
+    background: linear-gradient(to bottom, transparent 0%, transparent 14rem, $c-orange2 14rem, $c-orange2 100%);
+  }
+  &__swiper {
+    & + .p-top-image__swiper {
+      margin-top: 4rem;
+      @include mq(md, max) {
+        margin-top: 1.6rem;
+      }
+    }
+  }
+  figure {
+    border-radius: min(0.56vw,0.8rem) min(8.33vw,12rem) min(0.56vw,0.8rem) min(8.33vw,12rem);
+    overflow: hidden;
+  }
+}

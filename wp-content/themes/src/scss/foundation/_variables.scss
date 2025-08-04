@@ -1,0 +1,22 @@
+@charset "utf-8";
+@use "mixin"as mix;
+
+/* -------------------------------------------*/
+
+:root {
+	--content_width: 1000px;
+	--content-both_space: 15px;
+	--header_height:90px;
+	--waves_height: 60px;
+
+	@include mix.mq(lg, max) {
+		--content_width: 680px;
+		--content-both_space: 15px;
+		--header_height:65px;
+		--waves_height: 20px;
+	}
+
+	@include mix.mq(md, max) {
+		--content_width: 420px;
+	}
+}

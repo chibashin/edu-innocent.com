@@ -1,0 +1,164 @@
+@charset "utf-8";
+@use '../foundation' as *;
+
+/* -------------------------------------------*/
+.l-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: transparent;
+  transition: all 0.3s;
+  &.is-scrolled {
+    background: rgb(255 255 255 / 1);
+  }
+
+  &__inner {
+    padding-inline: 4rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    @include mq(header, max) {
+      padding-inline: 2.4rem;
+    }
+    @include mq(lg, max) {
+      align-items: center;
+      padding-block: 2rem;
+      padding-inline: 3rem 2rem;
+    }
+    @include mq(md, max) {
+      padding-block: 1rem;
+      padding-inline: 1rem;
+    }
+  }
+
+  &__logo {
+    max-width: 47.6rem;
+    width: calc((476 / 1360) * 100%);
+    margin-top: 4rem;
+    @media (hover: hover) and (pointer: fine) {
+      @include transition(
+        $property: (
+          opacity,
+        )
+      );
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    @include mq(header, max) {
+      width: 36rem;
+      margin-top: 2.6rem;
+    }
+    @include mq(lg, max) {
+      margin-top: 0;
+    }
+    @include mq(md, max) {
+      width: 27.2rem;
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    @include mq(lg, max) {
+      display: contents;
+    }
+
+    & + * {
+      margin-top: 1.9rem;
+    }
+  }
+
+  &__trigger {
+    width: 5rem;
+    height: 6.8rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    cursor: pointer;
+    padding-inline: 0;
+
+    &-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background-color: $c-white;
+      border: 0.2rem solid $c-orange;
+      border-radius: 50%;
+      width: 5rem;
+      height: 5rem;
+      aspect-ratio: 1/1;
+      @include transition($property: background-color);
+    }
+
+    &-wrap {
+      display: block;
+      position: relative;
+      width: 2.2rem;
+      height: 1.8rem;
+      transition: all 0.4s;
+    }
+
+    &-line {
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      width: 2.2rem;
+      height: 0.2rem;
+      border-radius: 1rem;
+      background-color: $c-orange;
+      @include transition($property: transform);
+      &.is-active {
+        background-color: $c-orange;
+      }
+      &:nth-of-type(1) {
+        top: 0;
+
+        &.is-active {
+          transform: translateY(0.8rem) rotate(45deg);
+        }
+      }
+
+      &:nth-of-type(2) {
+        top: 0.8rem;
+
+        &.is-active {
+          display: none;
+        }
+      }
+
+      &:nth-of-type(3) {
+        bottom: 0;
+
+        &.is-active {
+          transform: translateY(-0.8rem) rotate(-45deg);
+        }
+      }
+    }
+
+    &-comm {
+      position: relative;
+      font-size: 1.2rem;
+      font-family: $nunito;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      line-height: calc(16/12);
+      color: $c-orange;
+      text-transform: uppercase;
+      & .close {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
+
