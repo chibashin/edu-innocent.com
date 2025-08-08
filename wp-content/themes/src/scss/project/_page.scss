@@ -1,0 +1,67 @@
+@charset "utf-8";
+@use "../foundation" as *;
+
+.p-page {
+  padding-top: 14rem;
+
+  @include mq(md, max) {
+    padding-top: 8.8rem;
+  }
+
+  &-header {
+    position: relative;
+    background-color: $c-orange2;
+    background: url(../images/common/innocent_symbol_wh.png) no-repeat 2rem center / auto 110%;
+    border-radius: 1.6rem;
+    margin: 0 4rem;
+
+    @include mq(md, max) {
+      background-size: auto 90%;
+      background-position: -1rem center;
+      border-radius: 0.8rem;
+      margin: 0 5%;
+    }
+
+    .u-con--lg {
+      min-height: 24rem;
+      padding: 2rem;
+      display: grid;
+      place-content: center;
+
+      @include mq(md, max) {
+        min-height: 16rem;
+      }
+    }
+
+    &-title {
+      font-size: 4.2rem;
+      font-weight: 500;
+      line-height: 1.2;
+      color: $c-orange;
+
+      @include mq(md, max) {
+        font-size: 2.8rem;
+        margin-top: -0.5em;
+      }
+    }
+
+    .c-breadcrumbs {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+
+      @include mq(md, max) {
+        bottom: 1rem;
+        left: 1rem;
+      }
+    }
+  }
+
+  &-body {
+    padding-block: 10rem;
+
+    @include mq(md, max) {
+      padding-block: 6rem;
+    }
+  }
+}

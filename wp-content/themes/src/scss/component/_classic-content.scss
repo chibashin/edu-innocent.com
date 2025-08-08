@@ -1,0 +1,95 @@
+@charset "utf-8";
+@use "../foundation" as *;
+
+.c-classic-content {
+  margin-top: 5rem;
+
+  @include mq(md, max) {
+    margin-top: 3rem;
+  }
+
+  & > *:first-child {
+    margin-top: 0;
+  }
+
+  h2,
+  h3 {
+    font-weight: 700;
+    line-height: 1.4;
+    color: $c-orange;
+  }
+
+  h2 {
+    font-size: 2.8rem;
+    border-bottom: 2px solid $c-orange;
+    padding-bottom: 0.3em;
+
+    @include mq(md, max) {
+      font-size: 2.2rem;
+    }
+  }
+
+  h3 {
+    font-size: 2.2rem;
+
+    @include mq(md, max) {
+      font-size: 1.8rem;
+    }
+  }
+
+  p {
+    line-height: 1.8;
+  }
+
+  ul,
+  ol {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    padding-left: 2rem;
+    line-height: 1.6;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  h2,
+  h3,
+  h4,
+  p,
+  ul,
+  ol {
+    margin-top: 4rem;
+
+    @include mq(md, max) {
+      margin-top: 3rem;
+    }
+  }
+
+  h2 + p,
+  h2 + ul,
+  h2 + ol,
+  h3 + p,
+  h3 + ul,
+  h3 + ol,
+  p + p,
+  p + ul,
+  p + ol,
+  ul + p,
+  ul + ul,
+  ul + ol,
+  ol + p,
+  ol + ul,
+  ol + ol {
+    margin-top: 2rem;
+
+    @include mq(md, max) {
+      margin-top: 1.5rem;
+    }
+  }
+}

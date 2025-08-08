@@ -42,6 +42,17 @@
 	filter: brightness(0) invert(1);
 }
 
+.u-con--sm {
+  width: 80%;
+  max-width: 80rem;
+  margin-inline: auto;
+  @include mq(lg, max) {
+    width: 90%;
+  }
+  @include mq(md, max) {
+    max-width: 60rem;
+  }
+}
 
 .u-con--md {
   width: 80%;

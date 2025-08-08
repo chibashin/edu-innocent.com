@@ -149,3 +149,56 @@ function my_remove_adminbar_menu($wp_admin_bar)
 	$wp_admin_bar->remove_menu('new-content');  // 新規
 	$wp_admin_bar->remove_node('edit-profile'); // プロフィール編集
 }
+
+/**
+ * 目次作成
+ *
+ */
+
+function insert_auto_toc($content)
+{
+	if (!is_single()) return $content;
+
+	$show_toc = get_field('show_toc');
+	if (!$show_toc) return $content;
+
+	$matches = [];
+	preg_match_all('/<h([2-3])[^>]*>(.*?)<\/h[2-3]>/', $content, $matches, PREG_SET_ORDER);
+	if (empty($matches)) return $content;
+
+	$toc = '<div class="toc"><p>目次</p><ul>';
+	$open_ul = false;
+
+	foreach ($matches as $index => $match) {
+		$level = $match[1];
+		$title = strip_tags($match[2]);
+		$id = 'toc-' . $index;
+
+		// 見出しにID追加
+		$content = str_replace($match[0], "<h$level id=\"$id\">$title</h$level>", $content);
+
+		if ($level == 2) {
+			// h3リストが開いていたら閉じる
+			if ($open_ul) {
+				$toc .= '</ul>';
+				$open_ul = false;
+			}
+			// h2
+			$toc .= "<li class=\"toc-h2\"><a href=\"#$id\">$title</a>";
+		} elseif ($level == 3) {
+			// 最初のh3ならul開始
+			if (!$open_ul) {
+				$toc .= '<ul class="toc-sub">';
+				$open_ul = true;
+			}
+			$toc .= "<li class=\"toc-h3\"><a href=\"#$id\">$title</a></li>";
+		}
+	}
+
+	// 最後に開いていたulを閉じる
+	if ($open_ul) $toc .= '</ul>';
+	$toc .= '</ul></div>';
+
+	return $toc . $content;
+}
+add_filter('the_content', 'insert_auto_toc');

@@ -8,10 +8,13 @@ $c-text-main:#303030;
 $c-white:#fff;
 $c-black:#000;
 $c-gray:#eaeaea;
+$c-gray2: #cccccc;
 $c-orange:#ED7B27;
 $c-orange2:#FFFBF1;
 $c-yellow:#F6FF00;
 $c-green:#319A33;
+$c-red: #e8573d;
+$c-blue: #2d5ece;
 
 @mixin c-grad--main {
 	background: rgb(255, 255, 255);

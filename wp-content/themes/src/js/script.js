@@ -167,8 +167,10 @@ items.forEach( target => {
 } );
 
 
-// scroll-images
+// swipers
 // ________________________________________________________
+
+// 流れるスクロールスライダー
 function initScrollSwipers() {
   function setupScrollSwiper({ selector, reverse = false }) {
     new Swiper(selector, {
@@ -181,15 +183,18 @@ function initScrollSwipers() {
       },
       spaceBetween: 20, // デフォルト（すべて共通）
       breakpoints: {
-        0: { // 767px以下
+        0: {
+          // 767px以下
           slidesPerView: 2.8,
           speed: reverse ? 15000 : 15000,
         },
-        768: { // 768px以上
+        768: {
+          // 768px以上
           slidesPerView: 4.8,
           speed: reverse ? 15000 : 15000,
         },
-        1025: { // 1025px以上
+        1025: {
+          // 1025px以上
           slidesPerView: 5.5,
           speed: reverse ? 15000 : 15000,
         },
@@ -208,6 +213,34 @@ function initScrollSwipers() {
   });
 }
 
+// 関連記事スライダー
+function initRelatedSwiper() {
+  new Swiper(".articles-slider", {
+    centeredSlides: true,
+    slidesPerView: 1.4,
+    spaceBetween: 20,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      768: {
+        centeredSlides: false,
+        slidesPerView: 2,
+      },
+      1280: {
+        slidesPerView: 3,
+      },
+    },
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   initScrollSwipers();
+  initRelatedSwiper();
 });

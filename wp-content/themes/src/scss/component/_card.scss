@@ -1,0 +1,89 @@
+@charset "utf-8";
+@use "../foundation" as *;
+
+.c-aricle-card {
+  a {
+    display: block;
+    background-color: $c-white;
+    filter: drop-shadow(0px 3px 30px rgba(#000, 0.1));
+    transform: translateZ(0);
+    border-radius: 0.8rem;
+    overflow: hidden;
+
+    @include transition(
+      $property: (
+        opacity,
+      )
+    );
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &-img {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 8/5;
+      overflow: hidden;
+    }
+  }
+
+  &-content {
+    display: grid;
+    gap: 0.8rem;
+    padding: 2rem 1.5rem;
+  }
+
+  &-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: $c-text-base;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 2.8em;
+  }
+
+  &-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include mq(md, max) {
+      display: none;
+    }
+  }
+
+  &-data {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    padding-top: 0.4rem;
+
+    @include mq(md, max) {
+      font-size: 1.1rem;
+    }
+
+    .cat {
+      display: inline-flex;
+      color: $c-orange;
+      border: 1px solid $c-orange;
+      border-radius: 2rem;
+      padding: 0.2rem 1rem;
+    }
+
+    .date {
+      margin-left: 0.5rem;
+    }
+  }
+}

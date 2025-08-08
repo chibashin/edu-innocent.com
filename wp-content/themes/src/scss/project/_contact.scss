@@ -1,0 +1,14 @@
+@charset "utf-8";
+@use "../foundation" as *;
+
+.p-contact {
+  &-desc {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    line-height: 1.8;
+
+    @include mq(md, max) {
+    }
+  }
+}
