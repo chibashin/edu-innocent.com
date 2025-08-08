@@ -143,8 +143,10 @@ items.forEach(function (target) {
   obsever.observe(target);
 });
 
-// scroll-images
+// swipers
 // ________________________________________________________
+
+// 流れるスクロールスライダー
 function initScrollSwipers() {
   function setupScrollSwiper(_ref) {
     var selector = _ref.selector,
@@ -188,6 +190,34 @@ function initScrollSwipers() {
     reverse: false
   });
 }
+
+// 関連記事スライダー
+function initRelatedSwiper() {
+  new Swiper(".articles-slider", {
+    centeredSlides: true,
+    slidesPerView: 1.4,
+    spaceBetween: 20,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    },
+    breakpoints: {
+      768: {
+        centeredSlides: false,
+        slidesPerView: 2
+      },
+      1280: {
+        slidesPerView: 3
+      }
+    }
+  });
+}
 document.addEventListener("DOMContentLoaded", function () {
   initScrollSwipers();
+  initRelatedSwiper();
 });

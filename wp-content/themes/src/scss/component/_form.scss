@@ -298,11 +298,6 @@
         transition: opacity 0.3s;
         cursor: pointer;
 
-        @include mq(md, max) {
-          width: 16rem;
-          height: 4rem;
-        }
-
         @include transition(
           $property: (
             opacity,
@@ -311,6 +306,11 @@
 
         &:hover {
           opacity: 0.7;
+        }
+
+        @include mq(md, max) {
+          width: 16rem;
+          height: 4rem;
         }
       }
     }
